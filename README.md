@@ -66,6 +66,9 @@ docker compose up --build
 # コンテナ起動（バックグラウンド）
 docker compose up -d
 
+# コンテナに入る（起動しつつシェルに接続）
+docker compose run --rm app bash
+
 # コンテナ停止
 docker compose down
 
