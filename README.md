@@ -1,24 +1,36 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Docker で起動する
 
-Things you may want to cover:
+### 初回起動
 
-* Ruby version
+```bash
+docker compose up --build
+```
 
-* System dependencies
+### 2回目以降
 
-* Configuration
+```bash
+docker compose up
+```
 
-* Database creation
+### バックグラウンドで起動
 
-* Database initialization
+```bash
+docker compose up -d
+```
 
-* How to run the test suite
+### 停止
 
-* Services (job queues, cache servers, search engines, etc.)
+```bash
+docker compose down
+```
 
-* Deployment instructions
+### データも含めてリセットして起動
 
-* ...
+```bash
+docker compose down -v
+docker compose up --build
+```
+
+起動後、http://localhost:3000 でアクセスできます。

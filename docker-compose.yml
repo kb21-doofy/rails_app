@@ -1,9 +1,9 @@
 services:
   app:
     build: .
-    command: bash -c "bundle exec rails db:prepare && bundle exec rails server -b '0.0.0.0'"
+    command: bash -c "bundle install && bundle exec rails db:prepare && bundle exec rails server -b '0.0.0.0'"
     volumes:
-      - .:/app
+      - .:/rails
       - bundle_cache:/usr/local/bundle
     ports:
       - "3000:3000"
