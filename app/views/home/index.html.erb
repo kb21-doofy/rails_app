@@ -1,1 +1,91 @@
-<h1>Hello World!</h1>
+<% content_for :title, "My Blog" %>
+
+<header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="logo">My Blog</a>
+      <nav class="nav">
+        <a href="#">ホーム</a>
+        <a href="#">記事</a>
+        <a href="#">著者</a>
+        <a href="#">お問い合わせ</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <p class="hero-label">Welcome to My Blog</p>
+    <h1 class="hero-title">アイデアと知識を<br>シェアする場所</h1>
+    <p class="hero-desc">テクノロジー・デザイン・日々の発見をお届けします。</p>
+    <a href="#posts" class="btn-primary">記事を読む</a>
+  </div>
+</section>
+
+<main class="container main-content" id="posts">
+  <section class="posts-section">
+    <h2 class="section-title">最新の記事</h2>
+
+    <% if @users.empty? %>
+      <div class="empty-state">
+        <div class="empty-icon">📝</div>
+        <p class="empty-title">まだ記事がありません</p>
+        <p class="empty-desc">最初の記事を投稿してみましょう。</p>
+      </div>
+    <% else %>
+      <div class="post-grid">
+        <% @users.each do |user| %>
+          <article class="post-card">
+            <div class="post-card-body">
+              <div class="post-meta">
+                <span class="post-author-badge"><%= user.name[0].upcase %></span>
+                <span class="post-author-name"><%= user.name %></span>
+                <span class="post-date"><%= user.created_at.strftime("%Y年%m月%d日") %></span>
+              </div>
+              <h3 class="post-title"><%= user.name %>さんの投稿</h3>
+              <p class="post-excerpt">年齢: <%= user.age %>歳</p>
+              <a href="#" class="post-read-more">続きを読む →</a>
+            </div>
+          </article>
+        <% end %>
+      </div>
+    <% end %>
+  </section>
+
+  <aside class="sidebar">
+    <div class="widget">
+      <h3 class="widget-title">著者一覧</h3>
+      <ul class="author-list">
+        <% @users.each do |user| %>
+          <li class="author-item">
+            <span class="author-avatar"><%= user.name[0].upcase %></span>
+            <div>
+              <p class="author-name"><%= user.name %></p>
+              <p class="author-age"><%= user.age %>歳</p>
+            </div>
+          </li>
+        <% end %>
+        <% if @users.empty? %>
+          <li class="author-item-empty">著者がいません</li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="widget">
+      <h3 class="widget-title">カテゴリ</h3>
+      <ul class="category-list">
+        <li><a href="#">テクノロジー</a></li>
+        <li><a href="#">デザイン</a></li>
+        <li><a href="#">ライフスタイル</a></li>
+        <li><a href="#">ニュース</a></li>
+      </ul>
+    </div>
+  </aside>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2026 My Blog. All rights reserved.</p>
+  </div>
+</footer>

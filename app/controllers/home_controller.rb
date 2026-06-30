@@ -2,8 +2,7 @@ class HomeController < ApplicationController
   skip_forgery_protection
   # GET /home — ユーザー一覧を返す
   def index
-    users = User.all
-    render json: users
+    @users = User.all
   end
 
   # POST /home — ユーザーを登録する
