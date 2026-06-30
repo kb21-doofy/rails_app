@@ -1,0 +1,57 @@
+<% content_for :title, "記事一覧 | My Blog" %>
+
+<header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="logo">My Blog</a>
+      <nav class="nav">
+        <a href="/">ホーム</a>
+        <a href="/posts" class="nav-active">記事</a>
+        <a href="/authors">著者</a>
+        <a href="/contact">お問い合わせ</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="container">
+    <h1 class="page-hero-title">記事一覧</h1>
+    <p class="page-hero-desc">すべての記事を読む</p>
+  </div>
+</div>
+
+<main class="container main-content">
+  <section class="posts-section" style="grid-column: 1 / -1;">
+    <% if @posts.empty? %>
+      <div class="empty-state">
+        <div class="empty-icon">📝</div>
+        <p class="empty-title">まだ記事がありません</p>
+        <p class="empty-desc">最初の記事を投稿してみましょう。</p>
+      </div>
+    <% else %>
+      <div class="post-grid">
+        <% @posts.each do |post| %>
+          <article class="post-card">
+            <div class="post-card-body">
+              <div class="post-meta">
+                <span class="post-author-badge"><%= post.user.name[0].upcase %></span>
+                <span class="post-author-name"><%= post.user.name %></span>
+                <span class="post-date"><%= post.created_at.strftime("%Y年%m月%d日") %></span>
+              </div>
+              <h3 class="post-title"><%= post.title %></h3>
+              <p class="post-excerpt"><%= truncate(post.body, length: 100) %></p>
+              <a href="/posts/<%= post.id %>" class="post-read-more">続きを読む →</a>
+            </div>
+          </article>
+        <% end %>
+      </div>
+    <% end %>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2026 My Blog. All rights reserved.</p>
+  </div>
+</footer>

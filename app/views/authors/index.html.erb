@@ -1,0 +1,49 @@
+<% content_for :title, "著者一覧 | My Blog" %>
+
+<header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="logo">My Blog</a>
+      <nav class="nav">
+        <a href="/">ホーム</a>
+        <a href="/posts">記事</a>
+        <a href="/authors" class="nav-active">著者</a>
+        <a href="/contact">お問い合わせ</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="container">
+    <h1 class="page-hero-title">著者一覧</h1>
+    <p class="page-hero-desc">ブログを書いているメンバーを紹介します</p>
+  </div>
+</div>
+
+<main class="container" style="padding-top: 56px; padding-bottom: 80px;">
+  <% if @authors.empty? %>
+    <div class="empty-state">
+      <div class="empty-icon">👤</div>
+      <p class="empty-title">著者がいません</p>
+      <p class="empty-desc">著者を追加してみましょう。</p>
+    </div>
+  <% else %>
+    <div class="author-grid">
+      <% @authors.each do |author| %>
+        <div class="author-card">
+          <div class="author-card-avatar"><%= author.name[0].upcase %></div>
+          <h3 class="author-card-name"><%= author.name %></h3>
+          <p class="author-card-age"><%= author.age %>歳</p>
+          <p class="author-card-posts"><%= author.posts.count %>件の記事</p>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2026 My Blog. All rights reserved.</p>
+  </div>
+</footer>

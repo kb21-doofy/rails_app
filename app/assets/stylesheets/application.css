@@ -227,6 +227,76 @@ a { text-decoration: none; color: inherit; }
   font-size: 0.88rem;
 }
 
+/* Nav active */
+.nav-active { color: #4f46e5 !important; font-weight: 700; }
+
+/* Page hero (サブページ用) */
+.page-hero {
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  color: #fff;
+  padding: 56px 0;
+  text-align: center;
+}
+.page-hero-title { font-size: 2.2rem; font-weight: 800; margin-bottom: 10px; }
+.page-hero-desc { opacity: 0.85; font-size: 1rem; }
+
+/* Post detail */
+.back-link { display: inline-block; color: #4f46e5; font-weight: 600; margin-bottom: 28px; font-size: 0.9rem; }
+.back-link:hover { text-decoration: underline; }
+.post-detail-title { font-size: 2rem; font-weight: 800; margin-bottom: 16px; line-height: 1.3; }
+.post-body { font-size: 1rem; line-height: 1.9; color: #333; }
+.post-body p { margin-bottom: 1.2em; }
+
+/* Author grid */
+.author-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 24px;
+}
+.author-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 32px 24px;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.author-card:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,0.1); }
+.author-card-avatar {
+  width: 64px; height: 64px;
+  background: #ede9fe;
+  color: #4f46e5;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; font-weight: 800;
+  margin: 0 auto 16px;
+}
+.author-card-name { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
+.author-card-age { color: #888; font-size: 0.88rem; margin-bottom: 8px; }
+.author-card-posts { color: #4f46e5; font-size: 0.88rem; font-weight: 600; }
+
+/* Contact form */
+.contact-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+.contact-form { display: flex; flex-direction: column; gap: 20px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-label { font-size: 0.9rem; font-weight: 600; color: #333; }
+.form-input {
+  border: 1.5px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+  font-family: inherit;
+}
+.form-input:focus { border-color: #4f46e5; }
+.form-textarea { min-height: 140px; resize: vertical; }
+
 @media (max-width: 768px) {
   .main-content { grid-template-columns: 1fr; }
   .hero-title { font-size: 2rem; }

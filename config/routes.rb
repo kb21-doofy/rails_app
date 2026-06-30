@@ -12,5 +12,9 @@ Rails.application.routes.draw do
   get  "home" => "home#index"
   post "home" => "home#create"
 
+  resources :posts, only: [:index, :show]
+  resources :authors, only: [:index]
+  get "contact" => "pages#contact"
+
   root "home#index"
 end
